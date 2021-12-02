@@ -1,8 +1,8 @@
 #ifndef CRYPTO_CRAWLER_H_
 #define CRYPTO_CRAWLER_H_
 
-#include <functional>
 #include <string>
+#include <string_view>
 #include <vector>
 
 #include "crypto_crawler_ffi.h"
