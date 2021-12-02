@@ -36,10 +36,9 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/soulmachine/crypto-crawler-ffi
   GIT_TAG main)
 FetchContent_MakeAvailable(crypto_crawler_ffi)
-include_directories(${crypto_crawler_ffi_SOURCE_DIR}/include)
 
 add_library(crypto_crawler STATIC crypto_crawler.cpp)
-target_link_libraries(crypto_crawler PRIVATE crypto_crawler_ffi)
+target_link_libraries(crypto_crawler PUBLIC crypto_crawler_ffi)
 set_target_properties(PROPERTIES PUBLIC_HEADER
                                  "${CMAKE_CURRENT_SOURCE_DIR}/crypto_crawler.h")
 target_include_directories(crypto_crawler PUBLIC include/)
