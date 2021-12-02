@@ -42,6 +42,10 @@ add_library(crypto_crawler STATIC crypto_crawler.cpp)
 target_link_libraries(crypto_crawler PRIVATE crypto_crawler_ffi)
 set_target_properties(PROPERTIES PUBLIC_HEADER
                                  "${CMAKE_CURRENT_SOURCE_DIR}/crypto_crawler.h")
+install(
+  TARGETS crypto_crawler
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 enable_testing()
 add_executable(crypto_crawler_test crypto_crawler_test.cpp)
