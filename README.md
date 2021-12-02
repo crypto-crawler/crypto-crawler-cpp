@@ -7,3 +7,9 @@ C++ bindings for the crypto-crawler library
 ```bash
 rm -rf build && mkdir build && cd build && cmake .. && make
 ```
+
+## Unit Test
+
+```bash
+cd build && ctest
+```
