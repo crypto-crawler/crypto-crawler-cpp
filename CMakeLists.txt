@@ -38,12 +38,13 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(crypto_crawler_ffi)
 
 add_library(crypto_crawler STATIC crypto_crawler.cpp)
-target_link_libraries(crypto_crawler crypto_crawler_ffi)
+target_link_libraries(crypto_crawler PRIVATE crypto_crawler_ffi)
 set_target_properties(PROPERTIES PUBLIC_HEADER
                                  "${CMAKE_CURRENT_SOURCE_DIR}/crypto_crawler.h")
 target_include_directories(
-  crypto_crawler PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-                        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+  crypto_crawler INTERFACE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+                           $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
 enable_testing()
 add_executable(crypto_crawler_test crypto_crawler_test.cpp)
 target_link_libraries(crypto_crawler_test crypto_crawler gtest_main)
